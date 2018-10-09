@@ -42,14 +42,15 @@ namespace ConsoleApp1
     {
       const string URL = @"https://apps.waterconnect.sa.gov.au/file.csv";
       const string origFile = "file.csv";
-
+      const string newFile = "newFile.csv";
       bool isDownloaded = DownloadFile(URL, origFile);
+
       if (isDownloaded)
         Print("File Downloaded Successfully");
       else
         Print("Error Downloading File", "Error");
 
-      using (StreamWriter writer = new StreamWriter("newfile.csv"))
+      using (StreamWriter writer = new StreamWriter(newFile))
       {
         using (StreamReader reader = new StreamReader(origFile))
         {
@@ -65,6 +66,7 @@ namespace ConsoleApp1
             List<string> cols = line.Split(',').ToList<string>();
 
             //Assuming that comment will not contain newline
+            //Skipping any line with less than 20 columns
             if (cols.Count < 20)
             {
               Print(string.Format("Skipping line:{0}, cols: {1} ", count.ToString(), cols.Count), "Error");
@@ -101,6 +103,7 @@ namespace ConsoleApp1
           }
         }
       }
+      Print("New file saved at: " + (new System.IO.FileInfo(newFile)).FullName);
     }
   }
 }
