@@ -72,7 +72,8 @@ namespace ConsoleApp1
               cols.RemoveAt(cols.Count - 1);
             }
 
-            // Check for and put the closing quote character if necessary, needed to handle newline in comment (e.g. line 8079)
+            // Check for and put the closing quote character if necessary
+            // This is needed to handle newline in comment (e.g. line 8079)
             int lastCol = cols.Count - 1;
             string strLastCol = cols[lastCol];
             if (strLastCol != "")
