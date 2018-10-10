@@ -11,6 +11,6 @@ Simply run the executable file. The program does not ask for any user input. It 
 1. Add the values in columns _swl_ and _rswl_ and put the sum in the new column named _calc_
 1. Output the name and path of the newly generated file
 
-## Please note
+## Please note:
 
 This program does not handle newline in comments.
